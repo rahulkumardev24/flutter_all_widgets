@@ -72,26 +72,26 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
             /// drawer body part
             ListTile(
-              title: Text("Home screen"),
-              leading: Icon(
+              title: const Text("Home screen"),
+              leading: const Icon(
                 Icons.home,
                 size: 25,
                 color: Colors.blue,
               ),
-              trailing: Icon(Icons.navigate_next),
+              trailing: const Icon(Icons.navigate_next),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomeScreen()));
               },
             ),
             ListTile(
-              title: Text("Setting"),
-              leading: Icon(
+              title: const Text("Setting"),
+              leading: const Icon(
                 Icons.settings,
                 size: 25,
                 color: Colors.blue,
               ),
-              trailing: Icon(Icons.navigate_next),
+              trailing: const Icon(Icons.navigate_next),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -164,4 +164,4 @@ class _DrawerScreenState extends State<DrawerScreen> {
 }
 
 ///---------------------- DRAWER NAVIGATION APPLY IN THIS VIDEO ---------------///
-/// final test 
+/// final test
