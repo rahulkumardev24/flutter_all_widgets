@@ -25,12 +25,12 @@ class _DataShowScreenState extends State<DataShowScreen> {
           children: [
             Text(
               widget.name ?? "not found ",
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 30, color: Colors.red, fontWeight: FontWeight.bold),
             ),
             Text(
               widget.age ?? "not found ",
-              style: TextStyle(fontSize: 25, color: Colors.blueAccent),
+              style: const TextStyle(fontSize: 25, color: Colors.blueAccent),
             ),
           ],
         ),
