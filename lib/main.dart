@@ -9,6 +9,7 @@ import 'package:flutter_all_concept/drawer_screen.dart';
 import 'package:flutter_all_concept/flutter_snackbar_screen.dart';
 import 'package:flutter_all_concept/menu_screen.dart';
 import 'package:flutter_all_concept/splash_screen.dart';
+import 'package:flutter_all_concept/tab%20in%20flutter/flutter_deafult_tab.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const ImageAutoSlider());
+        home: const FlutterDeafultTab());
   }
 }
