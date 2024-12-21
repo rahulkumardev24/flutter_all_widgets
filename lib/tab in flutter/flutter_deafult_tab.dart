@@ -48,8 +48,10 @@ class _FlutterDeafultTabState extends State<FlutterDeafultTab> {
           /// here we show tabs related contain
           body: TabBarView(
 
-              /// you can also craete here multiple screen for all tabs
-              /// here we call the screen
+              /// you can also create here multiple screen for all tabs
+             /// --------------------_________________----------------__________________-------------------
+            /// here we call the screen
+
               children: [
                 HomeScreen(),
                 const MyModelBottomSheet(),
