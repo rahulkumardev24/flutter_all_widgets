@@ -16,6 +16,8 @@ class ScrollableAppbar extends StatelessWidget {
             pinned: true,
             snap: true,
             backgroundColor: Colors.orange,
+            centerTitle: false,
+
 
             flexibleSpace: FlexibleSpaceBar(
               title: const SizedBox(
