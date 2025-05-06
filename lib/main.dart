@@ -10,6 +10,8 @@ import 'package:flutter_all_concept/drawer_screen.dart';
 import 'package:flutter_all_concept/floating%20action%20button/custom_floating_action_button_screen.dart';
 import 'package:flutter_all_concept/floating%20action%20button/flutter_expandable_fab_button_screen.dart';
 import 'package:flutter_all_concept/flutter_snackbar_screen.dart';
+import 'package:flutter_all_concept/login_and_singup_with_preferences/my_home_screen.dart';
+import 'package:flutter_all_concept/login_and_singup_with_preferences/signup_screen.dart';
 import 'package:flutter_all_concept/menu_screen.dart';
 import 'package:flutter_all_concept/shared_preference_concept/shared_preferences.dart';
 import 'package:flutter_all_concept/splash_screen.dart';
@@ -17,6 +19,7 @@ import 'package:flutter_all_concept/tab%20in%20flutter/flutter_deafult_tab.dart'
 
 import 'App Bar/scrollable_appbar.dart';
 import 'Dialog Box In Flutter/alert_dialog_box.dart';
+import 'login_and_singup_with_preferences/splash_screen_my.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +36,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:const SharedPreferencesScreen());
+        home:const SplashScreenMy());
   }
 }
