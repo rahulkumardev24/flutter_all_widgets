@@ -33,8 +33,8 @@ class _YouTubeChannelScreenState extends State<YouTubeChannelScreen>
 
   Future<void> fetchChannelData() async {
     try {
-      final String apiKey = 'AIzaSyCQFcm4XqmlCN9sUrn4KXyZgguNEj66Lyk';
-      final String channelId = 'UCbeB0hHWr6zWHycC5MOCLJw';
+      final String apiKey = '';
+      final String channelId = '';
 
       // Fetch videos
       final videosResponse = await http.get(Uri.parse(
