@@ -40,6 +40,8 @@ dependencies:
   flutter_expandable_fab: ^2.3.0
 #  user for shared preference
   shared_preferences: ^2.5.3
+  youtube_player_flutter: ^9.1.1
+  http: ^1.4.0
 
 dev_dependencies:
   flutter_test:
