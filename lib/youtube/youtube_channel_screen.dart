@@ -33,8 +33,8 @@ class _YouTubeChannelScreenState extends State<YouTubeChannelScreen>
 
   Future<void> fetchChannelData() async {
     try {
-      final String apiKey = '';
-      final String channelId = '';
+      final String apiKey = 'AIzaSyCQFcm4XqmlCN9sUrn4KXyZgguNEj66Lyk';
+      final String channelId = 'UCbeB0hHWr6zWHycC5MOCLJw';
 
       // Fetch videos
       final videosResponse = await http.get(Uri.parse(
@@ -44,7 +44,8 @@ class _YouTubeChannelScreenState extends State<YouTubeChannelScreen>
       final playlistsResponse = await http.get(Uri.parse(
           'https://www.googleapis.com/youtube/v3/playlists?key=$apiKey&channelId=$channelId&part=snippet&maxResults=20'));
 
-      if (videosResponse.statusCode == 200 && playlistsResponse.statusCode == 200) {
+      if (videosResponse.statusCode == 200 &&
+          playlistsResponse.statusCode == 200) {
         setState(() {
           videos = json.decode(videosResponse.body)['items'];
           playlists = json.decode(playlistsResponse.body)['items'];
@@ -79,77 +80,81 @@ class _YouTubeChannelScreenState extends State<YouTubeChannelScreen>
           isLoading
               ? Center(child: CircularProgressIndicator())
               : RefreshIndicator(
-            onRefresh: fetchChannelData,
-            child: ListView.builder(
-              itemCount: videos.length,
-              itemBuilder: (context, index) {
-                final video = videos[index];
-                return Card(
-                  margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                  child: ListTile(
-                    leading: Image.network(
-                      video['snippet']['thumbnails']['default']['url'],
-                      width: 100,
-                      fit: BoxFit.cover,
-                    ),
-                    title: Text(video['snippet']['title']),
-                    subtitle: Text(
-                      video['snippet']['publishedAt'].toString().substring(0, 10),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => VideoPlayerScreen(
-                            videoId: video['id']['videoId'],
-                            videoTitle: video['snippet']['title'],
+                  onRefresh: fetchChannelData,
+                  child: ListView.builder(
+                    itemCount: videos.length,
+                    itemBuilder: (context, index) {
+                      final video = videos[index];
+                      return Card(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                        child: ListTile(
+                          leading: Image.network(
+                            video['snippet']['thumbnails']['default']['url'],
+                            width: 100,
+                            fit: BoxFit.cover,
                           ),
+                          title: Text(video['snippet']['title']),
+                          subtitle: Text(
+                            video['snippet']['publishedAt']
+                                .toString()
+                                .substring(0, 10),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => VideoPlayerScreen(
+                                  videoId: video['id']['videoId'],
+                                  videoTitle: video['snippet']['title'],
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       );
                     },
                   ),
-                );
-              },
-            ),
-          ),
+                ),
 
           // Playlists Tab
           isLoading
               ? Center(child: CircularProgressIndicator())
               : RefreshIndicator(
-            onRefresh: fetchChannelData,
-            child: ListView.builder(
-              itemCount: playlists.length,
-              itemBuilder: (context, index) {
-                final playlist = playlists[index];
-                return Card(
-                  margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                  child: ListTile(
-                    leading: Image.network(
-                      playlist['snippet']['thumbnails']['default']['url'],
-                      width: 100,
-                      fit: BoxFit.cover,
-                    ),
-                    title: Text(playlist['snippet']['title']),
-                    subtitle: Text(
-                      '${playlist['snippet']['itemCount'] ?? '?'} videos',
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PlaylistVideosScreen(
-                            playlistId: playlist['id'],
-                            playlistTitle: playlist['snippet']['title'],
+                  onRefresh: fetchChannelData,
+                  child: ListView.builder(
+                    itemCount: playlists.length,
+                    itemBuilder: (context, index) {
+                      final playlist = playlists[index];
+                      return Card(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                        child: ListTile(
+                          leading: Image.network(
+                            playlist['snippet']['thumbnails']['default']['url'],
+                            width: 100,
+                            fit: BoxFit.cover,
                           ),
+                          title: Text(playlist['snippet']['title']),
+                          subtitle: Text(
+                            '${playlist['snippet']['itemCount'] ?? '?'} videos',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PlaylistVideosScreen(
+                                  playlistId: playlist['id'],
+                                  playlistTitle: playlist['snippet']['title'],
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       );
                     },
                   ),
-                );
-              },
-            ),
-          ),
+                ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
