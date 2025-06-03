@@ -52,41 +52,44 @@ class _PlaylistVideosScreenState extends State<PlaylistVideosScreen> {
         title: Text(widget.playlistTitle),
       ),
       body: isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : RefreshIndicator(
-        onRefresh: fetchPlaylistVideos,
-        child: ListView.builder(
-          itemCount: playlistVideos.length,
-          itemBuilder: (context, index) {
-            final video = playlistVideos[index];
-            return Card(
-              margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-              child: ListTile(
-                leading: Image.network(
-                  video['snippet']['thumbnails']['default']['url'],
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
-                title: Text(video['snippet']['title']),
-                subtitle: Text(
-                  video['snippet']['publishedAt'].toString().substring(0, 10),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => VideoPlayerScreen(
-                        videoId: video['snippet']['resourceId']['videoId'],
-                        videoTitle: video['snippet']['title'],
+              onRefresh: fetchPlaylistVideos,
+              child: ListView.builder(
+                itemCount: playlistVideos.length,
+                itemBuilder: (context, index) {
+                  final video = playlistVideos[index];
+                  return Card(
+                    margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                    child: ListTile(
+                      leading: Image.network(
+                        video['snippet']['thumbnails']['default']['url'],
+                        width: 100,
+                        fit: BoxFit.cover,
                       ),
+                      title: Text(video['snippet']['title']),
+                      subtitle: Text(
+                        video['snippet']['publishedAt']
+                            .toString()
+                            .substring(0, 10),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VideoPlayerScreen(
+                              videoId: video['snippet']['resourceId']
+                                  ['videoId'],
+                              videoTitle: video['snippet']['title'],
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   );
                 },
               ),
-            );
-          },
-        ),
-      ),
+            ),
     );
   }
 }
