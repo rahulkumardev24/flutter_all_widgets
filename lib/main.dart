@@ -24,6 +24,7 @@ import 'package:flutter_all_concept/youtube/youtube_channel_screen.dart';
 
 import 'App Bar/scrollable_appbar.dart';
 import 'Dialog Box In Flutter/alert_dialog_box.dart';
+import 'ink_and_inkWell/ink_and_inkWell_screen.dart';
 import 'login_and_singup_with_preferences/splash_screen_my.dart';
 
 void main() {
@@ -41,6 +42,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: TextToSpeechScreen());
+        home: InkAndInkwellScreen());
   }
 }
