@@ -16,6 +16,7 @@ import 'package:flutter_all_concept/menu_screen.dart';
 import 'package:flutter_all_concept/shared_preference_concept/shared_preferences.dart';
 import 'package:flutter_all_concept/splash_screen.dart';
 import 'package:flutter_all_concept/tab%20in%20flutter/flutter_deafult_tab.dart';
+import 'package:flutter_all_concept/text_to_speech/text_to_speech_screen.dart';
 import 'package:flutter_all_concept/url_launcher/contact_screen.dart';
 import 'package:flutter_all_concept/youtube%20video/youtube_video_player.dart';
 import 'package:flutter_all_concept/youtube/playlist_videos_screen.dart';
@@ -40,6 +41,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:ContactScreen());
+        home: TextToSpeechScreen());
   }
 }
