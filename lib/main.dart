@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_all_concept/hello_world_screen.dart';
+import 'package:flutter_all_concept/speechToText/speech_to_text_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.orangeAccent,
       statusBarBrightness: Brightness.light,
       statusBarIconBrightness: Brightness.dark));
@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HelloWorldScreen());
+        home: const SpeechToTextScreen());
   }
 }
